@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Message</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+
+<!-- the values you get will populate this form -->
+<form method="POST" action="/update">
+    <h1 class="title">Edit Message</h1>
+    <fieldset>
+        <label class="edit-titles">ID:</label><input type="text" name="id" value=<%= result.rows[0].id %> >
+    </fieldset>
+    <fieldset>
+        <label class="edit-titles">Title:</label><input type="text" name="title" value='<%= result.rows[0].title %>'>
+    </fieldset>
+        <fieldset>
+    <!-- This only returns the first index of the message -->
+    <!-- When you 'update' nothing happens -->
+        <label class="edit-titles">Message:</label><input type="text" name="body" value='<%= result.rows[0].body %>'>
+    </fieldset>
+    <fieldset>
+        <button class="btn-add">Update Info</button>
+    </fieldset>
+</form>
+</body>
+</html>

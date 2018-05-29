@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bulletin Board</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css" >
+</head>
+<body>
+    <h1 class="title">Bulletin Board!</h1>
+<a href="newMessage.html"><button class= "btn-add">New Post</button></a>
+
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Message Title</th>
+                <th>Body</th>
+                <br>
+            <!-- What's going on below with that EJS stuff? -->
+            </tr>
+            <% for(let i in result.rows) {%>
+            
+            <tr class="rows">
+                <td><%= result.rows[i].id %></td>
+                <td><%= result.rows[i].title %></td>
+                <td><%= result.rows[i].body %></td>
+                
+
+<!-- these actions apply to the 'edit' and 'delete buttons' -->
+<!-- give descriptive name so it matches the app.js -->
+                <form method="GET" action='/edit/message/<%=result.rows[i].id%>'>
+                    <td><button class="btn-edit">Edit</button></td>
+                    <!-- EXPLANATION NEEDED  -->
+                </form>
+
+                <form method='POST' 
+                action='delete/message/<%= result.rows[i].id %>'>
+                <td><button class="btn">Delete</button> </td>
+                </form>
+            </tr>
+        <% } %>
+        </table>
+</body>
+</html>
